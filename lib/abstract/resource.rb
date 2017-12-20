@@ -12,5 +12,9 @@ class Resource
   def post(action, payload)
     @requestor.post(@resource, action, payload)
   end
-  
+
+  def post_json(action, payload)
+    @requestor.post_json(@resource, action, payload)
+  end
+
 end

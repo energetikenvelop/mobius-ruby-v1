@@ -22,6 +22,10 @@ class Requestor
     request('POST', resource, action, payload)
   end
 
+  def post_json(resource, action, payload)
+    request('POST_JSON', resource, action, payload)
+  end
+
   private
 
   def request(method, resource, action, payload)
@@ -40,6 +44,8 @@ class Requestor
         http.get(url, params: payload)
       when 'POST'
         http.post(url, form: payload)
+      when 'POST_JSON'
+        http.post(url, json: payload)
     end
 
     if response.code >= 400
