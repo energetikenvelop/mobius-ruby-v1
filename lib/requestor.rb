@@ -1,5 +1,10 @@
 require 'http'
 
+
+class ApiError < StandardError
+end
+
+
 class Requestor
 
   def initialize(api_key:, host: nil, version: nil, auth: nil)
@@ -38,6 +43,16 @@ class Requestor
     end
 
     if response.code >= 400
+      message = ''
+
+      begin
+        error = response.parse
+        message = error['error']['message']
+      rescue
+        message = 'Something wrong'
+      end
+
+      raise ApiError.new, message
     end
 
     response.parse
