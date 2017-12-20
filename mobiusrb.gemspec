@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.summary               = 'Mobius Ruby API Client'
   gem.description           = 'Mobius Ruby API Client'
   gem.email                 = 'support@mobius.network'
-  gem.files                 = ['']
+  gem.files                 = `git ls-files`.split("\n")
   gem.homepage              = 'https://github.com/mobius-network/mobius-ruby'
   gem.license               = 'MIT'
   gem.required_ruby_version = '>= 2.2'
