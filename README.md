@@ -1,5 +1,8 @@
 # Mobius Ruby API Client
 
+[![Gem Version](https://badge.fury.io/rb/mobiusrb.svg)](https://rubygems.org/gems/mobiusrb)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mobius-network/mobius-ruby/blob/master/LICENSE)
+
 The Mobius Ruby Client provides simple access to the Mobius API for applications written on Ruby
 
 ## Installation

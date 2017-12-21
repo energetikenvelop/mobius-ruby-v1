@@ -1,0 +1,21 @@
+AllCops:
+  Exclude:
+    - 'test.rb'
+  TargetRubyVersion: 2.2
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 30
+
+Style/Documentation:
+  Enabled: false
+
+# TODO: Switch on
+Style/IfUnlessModifier:
+  Enabled: false

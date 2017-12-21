@@ -1,5 +1,4 @@
 class Resource
-
   def initialize(requestor, resource)
     @requestor = requestor
     @resource = resource
@@ -16,5 +15,4 @@ class Resource
   def post_json(action, payload)
     @requestor.post_json(@resource, action, payload)
   end
-
 end

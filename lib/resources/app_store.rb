@@ -1,7 +1,6 @@
 require './lib/abstract/resource'
 
 class AppStore < Resource
-
   def initialize(requestor)
     super(requestor, 'app_store')
   end
@@ -13,5 +12,4 @@ class AppStore < Resource
   def use(app_uid:, email:, num_credits:)
     post('use', app_uid: app_uid, email: email, num_credits: num_credits)
   end
-
 end

@@ -1,12 +1,9 @@
 require 'http'
 
-
 class ApiError < StandardError
 end
 
-
 class Requestor
-
   def initialize(api_key:, host: nil, version: nil, auth: nil)
     @api_key = api_key
     @host = host || 'https://mobius.network/api'
@@ -29,9 +26,9 @@ class Requestor
   private
 
   def request(method, resource, action, payload)
-    url = "#{ @host }/#{ @version }/#{ resource }/#{ action }"
+    url = "#{@host}/#{@version}/#{resource}/#{action}"
 
-    headers = {'x-api-key': @api_key}
+    headers = { 'x-api-key': @api_key }
 
     if @auth
       headers['Authorization'] = @auth
@@ -39,14 +36,15 @@ class Requestor
 
     http = HTTP.headers(headers)
 
-    response = case method
+    response =
+      case method
       when 'GET'
         http.get(url, params: payload)
       when 'POST'
         http.post(url, form: payload)
       when 'POST_JSON'
         http.post(url, json: payload)
-    end
+      end
 
     if response.code >= 400
       message = ''
@@ -54,7 +52,7 @@ class Requestor
       begin
         error = response.parse
         message = error['error']['message']
-      rescue
+      rescue StandardError
         message = 'Something wrong'
       end
 
@@ -63,5 +61,4 @@ class Requestor
 
     response.parse
   end
-
 end

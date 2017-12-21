@@ -1,7 +1,6 @@
 require './lib/abstract/resource'
 
 class DataMarketplace < Resource
-
   def initialize(requestor)
     super(requestor, 'data_marketplace')
   end
@@ -17,5 +16,4 @@ class DataMarketplace < Resource
   def buy(data_feed_uid:, address:)
     post('buy', data_feed_uid: data_feed_uid, address: address)
   end
-
 end
